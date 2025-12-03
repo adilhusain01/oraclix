@@ -1,0 +1,22 @@
+{
+  "name": "@nullshot/mcp-proxy",
+  "version": "1.0.2",
+  "private": true,
+  "description": "MCP Server Proxy Example",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "codegen": "wrangler types"
+  },
+  "dependencies": {
+    "@nullshot/mcp": "workspace:*",
+    "@modelcontextprotocol/sdk": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "wrangler": "catalog:"
+  },
+  "type": "module"
+}

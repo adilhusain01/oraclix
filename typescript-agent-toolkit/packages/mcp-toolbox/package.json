@@ -1,0 +1,40 @@
+{
+  "name": "@nullshot/mcp-toolbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hono websocket server with SQLite integration",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "prebuild": "cd ../mcp && pnpm run build",
+    "build": "pnpm exec tsc",
+    "build:bundle": "node -e \"require('fs').copyFileSync('node_modules/sql.js/dist/sql-wasm.wasm', 'dist/sql-wasm.wasm')\" && esbuild dist/index.js --bundle --platform=node --target=node20 --external:cloudflare:workers --external:@cloudflare/* --outfile=dist/bundle.js",
+    "start": "node dist/index.js",
+    "start:bundle": "node dist/bundle.js",
+    "send": "tsx send-message.ts",
+    "test": "echo 'Tests temporarily excluded'",
+    "proxy:test": "tsx src/test-figma-mcp.ts",
+    "worker:deploy": "wrangler deploy",
+    "worker:dev": "wrangler dev --tsconfig tsconfig.worker.json",
+    "codegen": "wrangler types"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.12.0",
+    "hono": "^4.8.2",
+    "sql.js": "^1.13.0",
+    "ws": "^8.18.0",
+    "zod": "catalog:",
+    "@modelcontextprotocol/sdk": "^1.13.0",
+    "@nullshot/mcp": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/ws": "^8.5.12",
+    "@types/sql.js": "^1.4.9",
+    "esbuild": "catalog:",
+    "tsx": "^4.19.0",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "@vitest/ui": "catalog:"
+  }
+}

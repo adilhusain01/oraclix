@@ -1,0 +1,32 @@
+{
+  "name": "oracle-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "wrangler build",
+    "deploy": "wrangler deploy",
+    "dev": "concurrently \"npx @modelcontextprotocol/inspector\" \"wrangler dev\" --kill-others",
+    "dev:server": "wrangler dev",
+    "dev:inspector": "DANGEROUSLY_OMIT_AUTH=true npx @modelcontextprotocol/inspector",
+    "start": "wrangler dev",
+    "test": "vitest run",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.4.0",
+    "@types/node": "^20.0.0",
+    "@types/chai": "^4.3.0",
+    "chai": "^5.0.0",
+    "concurrently": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "wrangler": "^3.80.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "@nullshot/mcp": "workspace:*",
+    "hono": "^4.6.0",
+    "zod": "^3.23.0"
+  }
+}

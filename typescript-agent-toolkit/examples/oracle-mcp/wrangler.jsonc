@@ -1,0 +1,30 @@
+{
+  "name": "oracle-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-11",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ORACLE_MCP_SERVER",
+        "class_name": "OracleMcpServer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["OracleMcpServer"]
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "COINGECKO_API_KEY": "CG-MFTufrpG2tygHBbYbchrkof2",
+    "QUICKNODE_API_KEY": "QN_0f705c1248484ee099b5308c49595231",
+    "POLYGON_RPC_URL": "https://polygon-rpc.com",
+    "CACHE_TTL_SECONDS": "30"
+  }
+}

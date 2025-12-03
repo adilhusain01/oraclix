@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "oracle-mcp": {
+      "url": "http://localhost:8787/sse"
+    }
+  }
+}

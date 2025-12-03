@@ -1,0 +1,33 @@
+{
+	"name": "simple-prompt-agent",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "concurrently \"wrangler dev\" \"cd ../crud-mcp && npm run start -- --port 8788\" \"cd ../playground-showcase && npm run dev\"",
+		"start": "wrangler dev",
+		"test": "echo 'Tests temporarily excluded'",
+		"cf-typegen": "wrangler types",
+		"build": "wrangler build"
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-pool-workers": "catalog:",
+		"@types/node": "^24.3.0",
+		"concurrently": "^9.1.2",
+		"typescript": "catalog:",
+		"vitest": "catalog:",
+		"wrangler": "catalog:"
+	},
+	"dependencies": {
+		"@ai-sdk/anthropic": "catalog:",
+		"@ai-sdk/deepseek": "catalog:",
+		"@ai-sdk/google": "catalog:",
+		"@ai-sdk/openai": "catalog:",
+		"@ai-sdk/xai": "catalog:",
+		"@nullshot/agent": "workspace:*",
+		"@nullshot/cli": "workspace:*",
+		"ai": "catalog:",
+		"hono": "^4.7.7",
+		"workers-ai-provider": "catalog:"
+	}
+}
