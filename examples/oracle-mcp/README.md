@@ -21,13 +21,65 @@ A production-ready MCP (Model Context Protocol) server that acts as a blockchain
 ### Prerequisites
 
 - Node.js 18+
-- pnpm (recommended) or npm
-- Cloudflare account (for deployment)
+- npm or pnpm
+- Optional: API keys for enhanced functionality
 
-### Development
+### Local Testing
+
+#### Option 1: MCP Inspector (Recommended)
 
 ```bash
-# Clone the repository and navigate to the oracle-mcp directory
+# Install dependencies
+npm install
+
+# Start both MCP Inspector and development server
+npm run dev
+
+# Open your browser to: http://localhost:3000
+```
+
+The MCP Inspector will automatically connect to your local Oracle MCP server and let you test all the tools interactively.
+
+#### Option 2: Claude Desktop Integration
+
+1. **Build the project:**
+```bash
+npm run build
+```
+
+2. **Add to Claude Desktop config:**
+
+**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows:** `%APPDATA%/Claude/claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "oracle-mcp": {
+      "command": "node",
+      "args": ["/full/path/to/oracle-mcp/dist/index.js"],
+      "env": {
+        "COINGECKO_API_KEY": "your_api_key_here"
+      }
+    }
+  }
+}
+```
+
+3. **Restart Claude Desktop** and you'll see Oracle MCP tools available!
+
+### Available Tools
+
+Once connected, you can use these MCP tools:
+
+- `getTokenPrice` - Get real-time token prices (ETH, BTC, MATIC, etc.)
+- `getGasPrice` - Get current gas prices for networks
+- `getHistoricalPrice` - Get historical price data
+- `getMultiNetworkGasPrice` - Get gas prices across multiple networks
+- `publishToContract` - Simulate contract interactions
+- `healthCheck` - Check system health and API status
+
+### Development
 cd examples/oracle-mcp
 
 # Install dependencies

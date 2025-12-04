@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "oracle-mcp": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "env": {
+        "COINGECKO_API_KEY": "your_api_key_here",
+        "QUICKNODE_API_KEY": "your_api_key_here"
+      }
+    }
+  }
+}
