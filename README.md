@@ -74,17 +74,16 @@ Once connected, you can use these MCP tools:
 ### Development
 cd examples/oracle-mcp
 
-# Install dependencies
+#### Install dependencies
 pnpm install
 
-# Start development server with MCP inspector
+#### Start development server with MCP inspector
 pnpm dev
 
-# 🎯 Access Points:
-# • Oracle Server: http://localhost:8787 (port varies)
-# • MCP SSE Endpoint: http://localhost:8787/sse. (port varies)
-# • MCP Inspector: http://localhost:6274 (auto-opens, port varies)
-```
+#### 🎯 Access Points:
+##### • Oracle Server: http://localhost:8787 (port varies)
+##### • MCP SSE Endpoint: http://localhost:8787/sse. (port varies)
+##### • MCP Inspector: http://localhost:6274 (auto-opens, port varies)
 
 ### Using the MCP Inspector
 
