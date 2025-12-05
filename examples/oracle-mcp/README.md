@@ -2,8 +2,6 @@
 
 A production-ready MCP (Model Context Protocol) server that acts as a blockchain data oracle for AI agents. This server provides real-time blockchain metrics (gas prices, token prices, historical data) and formats them for AI consumption. Built on the Nullshot framework with Cloudflare Workers and designed to enable seamless agent-to-agent collaboration through the standardized MCP protocol.
 
-> **Built for Track 1a: MCP/Agent** - Enables AI agents to discover and collaborate with each other through real-time blockchain data.
-
 ## 🌟 Features
 
 - **🪙 Real-time Token Prices**: Get current prices from CoinGecko and other sources with automatic fallbacks
