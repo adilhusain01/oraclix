@@ -35,38 +35,32 @@ npm install
 # Start both MCP Inspector and development server
 npm run dev
 
-# Open your browser to: http://localhost:3000
+# In SSE option change the sse port to current one and then you can connect
 ```
 
-The MCP Inspector will automatically connect to your local Oracle MCP server and let you test all the tools interactively.
-
-#### Option 2: Claude Desktop Integration
+#### Option 2: MCP Integration
 
 1. **Build the project:**
 ```bash
 npm run build
 ```
 
-2. **Add to Claude Desktop config:**
-
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows:** `%APPDATA%/Claude/claude_desktop_config.json`
+2. **Add to agent config:**
 
 ```json
 {
-  "mcpServers": {
-    "oracle-mcp": {
-      "command": "node",
-      "args": ["/full/path/to/oracle-mcp/dist/index.js"],
-      "env": {
-        "COINGECKO_API_KEY": "your_api_key_here"
-      }
-    }
+"servers": {
+  "oraclix": {
+    "url": "http://localhost:63791/sse",
+    "type": "http"
   }
+},
+"inputs": []
 }
+
+//change the port to your current sse port
 ```
 
-3. **Restart Claude Desktop** and you'll see Oracle MCP tools available!
 
 ### Available Tools
 
@@ -89,9 +83,9 @@ pnpm install
 pnpm dev
 
 # 🎯 Access Points:
-# • Oracle Server: http://localhost:8787
-# • MCP SSE Endpoint: http://localhost:8787/sse
-# • MCP Inspector: http://localhost:6274 (auto-opens)
+# • Oracle Server: http://localhost:8787 (port varies)
+# • MCP SSE Endpoint: http://localhost:8787/sse. (port varies)
+# • MCP Inspector: http://localhost:6274 (auto-opens, port varies)
 ```
 
 ### Using the MCP Inspector
@@ -282,35 +276,3 @@ curl http://localhost:8787/sse
 pnpm dev
 # Visit http://localhost:6274 for MCP inspector (auto-opens)
 ```
-
-## Production Considerations
-
-### Monitoring
-
-- Enable observability in `wrangler.jsonc`
-- Monitor cache hit rates and API response times
-- Set up alerts for API failures
-
-### Security
-
-- Use environment variables for API keys
-- Implement rate limiting per agent/session
-- Validate all input parameters
-
-### Scaling
-
-- Durable Objects provide automatic scaling
-- Consider implementing circuit breakers for external APIs
-- Monitor memory usage in cache service
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Implement your changes
-4. Add tests for new functionality
-5. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details.
